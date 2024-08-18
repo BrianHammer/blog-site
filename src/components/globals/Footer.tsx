@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="p-8 border-t border-gray flex flex-col gap-8 items-center justify-center">
+    <footer className="p-8 py-16 border-t border-gray flex flex-col gap-8 items-center justify-center">
       <div className="flex flex-col gap-2 justify-center items-center">
         <a href="#" className="text-xl font-bold">
           Blogging
