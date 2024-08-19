@@ -1,4 +1,4 @@
-import { Eye, Share2 } from "lucide-react";
+import { CalendarClock, Eye, Share2 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,50 +8,65 @@ export default function Home() {
        *  Hero section
        **************************
        * */}
-      <section>
+      <section className="">
         {/** TODO! Replace links and images with NextJS optimized versions */}
+        <header className="p-4 hidden">
+          <h1 className="font-bold text-3xl">
+            Most up to date information on stuff
+          </h1>
+        </header>
 
-        <a href="#" className="group relative w-full h-96 overflow-hidden">
-          {/** This works, but not sure how well it will hold */}
-          <img
-            src="/dummy-article-images/image-one.jpg"
-            alt="Hero Image"
-            className="object-cover w-full h-96"
-          />
-
-          {/** This is a strange effect by accident, where it immediately will transition immediately, but fade when hovered away 
-           * CODE:
-           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-primary opacity-0 group-hover:opacity-50 group-hover:transition-colors duration-500 p-5">
-              Hi
-          </div>
-          */}
-
-          <div className="absolute top-0 bottom-0 left-0 right-0 p-5 w-full h-full flex flex-col gap-4 justify-end items-start bg-transparent transition-colors duration-300 group-hover:bg-black/50">
+        <a href="#">
+          <article className="group relative w-full h-96 p-5 flex flex-col gap-4 justify-end items-start bg-black/0 hover:bg-black/75 transition-colors duration-300">
+            {/** Category */}
             <p className="bg-black font-bold px-4 py-1 text-sm transition-colors duration-300 group-hover:bg-primary group-hover:text-background">
               Books
             </p>
-            <h1 className="bg-black font-bold text-3xl px-4 py-1 transition-colors duration-300 group-hover:bg-primary group-hover:text-background">
-              The blah blah blha very important British Bridge of Knobs
-            </h1>
 
-            {/** Profile Picture */}
-            <div className="flex flex-row gap-x-4 flex-wrap items-center justify-center text-sm">
+            {/** Name */}
+            <h2 className="bg-black font-bold text-3xl px-4 py-1 transition-colors duration-300 group-hover:bg-primary group-hover:text-background">
+              The blah blah blha very important British Bridge of Knobs
+            </h2>
+
+            {/** Profile Picture and article information */}
+            <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-sm">
+              {/** I decided not to put a figure around this profile picture image so the footer is more clear */}
+              <figure className="flex items-center">
+                <img
+                  src="/dummy-pfp/man.png"
+                  alt="Profile Picture"
+                  className="h-12 w-12 rounded-full"
+                />
+                <figcaption className="sr-only">
+                  Profile picture of Brian Hammer
+                </figcaption>
+              </figure>
+
+              <p>
+                By <strong className="font-bold">Brian Hammer</strong>{" "}
+              </p>
+
+              <time
+                itemProp="date created"
+                dateTime="2024-08-26"
+                className="flex flex-row gap-1 items-center"
+              >
+                <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+              </time>
+
+              <p className="flex flex-row gap-1 items-center">
+                <Eye className="w-5 h-5" /> 23 Views
+              </p>
+            </footer>
+
+            <figure className="absolute top-0 bottom-0 left-0 right-0 -z-10">
               <img
-                src="/dummy-pfp/man.png"
-                alt="Profile Picture"
-                className="h-12 w-12 rounded-full"
+                src="/dummy-article-images/image-one.jpg"
+                alt="Hero Image"
+                className="object-cover w-full h-96"
               />
-              <span> By Brian Hammer</span>
-              <span className="flex flex-row gap-1 items-center">
-                {" "}
-                <Eye className="w-5 h-5" /> 265 views
-              </span>
-              <span className="flex flex-row gap-1 items-center">
-                {" "}
-                <Share2 className="w-5 h-5" /> 23 shares
-              </span>
-            </div>
-          </div>
+            </figure>
+          </article>
         </a>
       </section>
     </main>
