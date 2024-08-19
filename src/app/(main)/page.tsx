@@ -1,14 +1,15 @@
+import { ArticleHover } from "@/components/globals/article-hover";
 import { CalendarClock, Eye, Share2 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen container mx-auto px-5">
+    <main className="min-h-screen mx-auto">
       {/*************************
        *  Hero section
        **************************
        * */}
-      <section className="">
+      <section className="px-5 container mx-auto pb-16">
         {/** TODO! Replace links and images with NextJS optimized versions */}
         <header className="py-4">
           <h1 className="font-bold text-3xl capitalize">
@@ -96,7 +97,7 @@ export default function Home() {
                     </figcaption>
 
                     <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300">
-                      <span className="font-semibold text-sm text-light-gray">
+                      <span className="font-bold text-sm text-primary">
                         Read More
                       </span>
                     </div>
@@ -104,7 +105,7 @@ export default function Home() {
 
                   <header className="space-y-2">
                     <p className="text-xs ">COOKING</p>
-                    <h3 className="font-bold text-xl  transition-colors duration-300 group-hover:text-foreground/50 capitalize">
+                    <h3 className="font-bold text-xl  transition-colors duration-300 group-hover:text-primary/100 capitalize">
                       How to turn your kitchen into a meth lab
                     </h3>
                   </header>
@@ -192,36 +193,21 @@ export default function Home() {
             <li className="border-t border-gray">
               <a href="#">
                 <article className="group py-5">
-                  <figure className="float-right relative overflow-hidden rounded-full">
-                    <img
-                      src="/dummy-pfp/officer.png"
-                      className="w-24 h-24  object-cover"
-                      alt="article image"
-                    />
-                    <figcaption className="sr-only">
-                      Image for the article titled "X"
-                    </figcaption>
-
-                    <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300">
-                      <span className="font-semibold text-sm text-light-gray">
-                        Read More
-                      </span>
-                    </div>
-                  </figure>
+                  <ArticleHover
+                    src="/dummy-pfp/officer.png"
+                    articleTitle=""
+                    className="float-right"
+                  />
 
                   <header className="space-y-2">
                     <p className="text-xs ">MOVIES</p>
                     <h3 className="font-bold text-xl  transition-colors duration-300 group-hover:text-foreground/50 ">
-                      Blah blah blah blah blah blah blah Blah blah blah blah
-                      blah blah blah 
+                      Blah blah blah
                     </h3>
                   </header>
 
                   <p className="mt-2 text-light-gray/75 text-sm">
-                    Blah blah blah blah blah blah blahBlah blah blah blah blah
-                    blah blahBlah blah blah blah blah blah blahBlah blah blah
-                    blah blah blah blahBlah blah blah blah blah blah blahBlah
-                    blah blah blah blah blah blah
+                    Blah blah blah
                   </p>
                 </article>
               </a>
@@ -229,6 +215,136 @@ export default function Home() {
           </ul>
         </section>
       </section>
+
+      {/************************************************************************************************************************
+       * TRENDING SECTION
+       * ***********************************************************************************************************************
+       */}
+      <div className="bg-black py-16">
+        <section className="container mx-auto px-5">
+          <header className="">
+            <h2 className="font-bold text-2xl text-secondary mb-8">
+              Trending Now
+            </h2>
+          </header>
+
+          <ul className="flex flex-col gap-0">
+            <li className="py-4 border-t border-gray">
+              <a href="#">
+                <article className="group flex flex-row gap-4 w-full items-center">
+                  <ArticleHover
+                    src="dummy-pfp/doctor.png"
+                    articleTitle="X"
+                    className="text-secondary"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <header className="">
+                      <h3 className="font-bold text-foreground text-xl transition-colors duration-300 group-hover:text-light-gray/50">
+                        20 Ya Books That Will Get You Pumped for Study Abroad
+                      </h3>
+                    </header>
+
+                    {/** This was copied and slightly modified from the hero section... */}
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-gray">
+                      <p>
+                        By <strong className="font-bold">Ligma</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </article>
+              </a>
+            </li>
+
+            <li className="py-4 border-t border-gray">
+              <a href="#">
+                <article className="group flex flex-row gap-4 w-full items-center">
+                  <ArticleHover
+                    src="dummy-pfp/doctor.png"
+                    articleTitle="X"
+                    className="text-secondary"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <header className="">
+                      <h3 className="font-bold text-foreground text-xl transition-colors duration-300 group-hover:text-light-gray/50">
+                        20 Ya Books That Will Get You Pumped for Study Abroad
+                      </h3>
+                    </header>
+
+                    {/** This was copied and slightly modified from the hero section... */}
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-gray">
+                      <p>
+                        By <strong className="font-bold">Ligma</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </article>
+              </a>
+            </li>
+
+            <li className="py-4 border-t border-gray">
+              <a href="#">
+                <article className="group flex flex-row gap-4 w-full items-center">
+                  <ArticleHover
+                    src="dummy-pfp/doctor.png"
+                    articleTitle="X"
+                    className="text-secondary"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <header className="">
+                      <h3 className="font-bold text-foreground text-xl transition-colors duration-300 group-hover:text-light-gray/50">
+                        20 Ya Books That Will Get You Pumped for Study Abroad
+                      </h3>
+                    </header>
+
+                    {/** This was copied and slightly modified from the hero section... */}
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-gray">
+                      <p>
+                        By <strong className="font-bold">Ligma</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </article>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }
