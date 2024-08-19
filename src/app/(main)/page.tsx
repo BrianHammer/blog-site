@@ -229,7 +229,7 @@ export default function Home() {
           </header>
 
           <ul className="flex flex-col gap-0">
-            <li className="py-4 border-t border-gray">
+            <li className="py-8 border-t border-gray">
               <a href="#">
                 <article className="group flex flex-row gap-4 w-full items-center">
                   <ArticleHover
@@ -267,7 +267,7 @@ export default function Home() {
               </a>
             </li>
 
-            <li className="py-4 border-t border-gray">
+            <li className="py-8 border-t border-gray">
               <a href="#">
                 <article className="group flex flex-row gap-4 w-full items-center">
                   <ArticleHover
@@ -305,7 +305,7 @@ export default function Home() {
               </a>
             </li>
 
-            <li className="py-4 border-t border-gray">
+            <li className="py-8 border-t border-gray">
               <a href="#">
                 <article className="group flex flex-row gap-4 w-full items-center">
                   <ArticleHover
@@ -351,53 +351,217 @@ export default function Home() {
        * ***********************************************************************************************************************
        */}
 
-      <section className="container mx-auto px-5 py-16">
+      <section className="container mx-auto px-5 py-16 space-y-8">
         <header className="">
-          <h2 className="text-3xl font-bold">POSTS</h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <li>
-              <a href="#">
-                <article>
-                  <figure>
-                    <img src="dummy-article-images/image-three.jpg" />
-                    <figcaption className="sr-only">
-                      The article image of "INSERT_ARTICLE_NAME_HERE"
-                    </figcaption>
-                  </figure>
-
-                  <header className="flex flex-row gap-2">
-                    <span className="px-4 border-r text-3xl text-light-gray">
-                      1
-                    </span>
-                    <h3>The article of circuits</h3>
-                  </header>
-
-                  <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
-                    <p>
-                      By <strong className="font-bold">Ligma</strong>{" "}
-                    </p>
-
-                    <time
-                      itemProp="date created"
-                      dateTime="2024-08-26"
-                      className="flex flex-row gap-1 items-center"
-                    >
-                      <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
-                    </time>
-
-                    <p className="flex flex-row gap-1 items-center">
-                      <Eye className="w-5 h-5" /> 23 Views
-                    </p>
-                  </footer>
-                </article>
-              </a>
-            </li>
-
-            <li>Element two</li>
-            <li>Element three</li>
-            <li>Element four</li>
-          </ul>
+          <h2 className="text-3xl font-bold">Popular</h2>
         </header>
+
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <li>
+            <a href="#">
+              <article className="group flex flex-col gap-4">
+                <figure className="relative">
+                  <img
+                    src="dummy-article-images/image-three.jpg"
+                    className="w-full h-72 sm:h-52 object-cover"
+                  />
+                  <figcaption className="sr-only">
+                    The article image of "INSERT_ARTICLE_NAME_HERE"
+                  </figcaption>
+
+                  <div className="absolute left-0 top-0 right-0 bottom-0 bg-black flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                    <span className="font-bold">READ MORE</span>
+                  </div>
+                </figure>
+
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 border-r-2 border-gray flex-shrink-0">
+                    <p className="font-bold text-4xl text-gray ">1</p>
+                  </div>
+                  <div>
+                    <header className="">
+                      <h3 className="text-2xl font-bold group-hover:opacity-50 transition-opacity duration-300">
+                        The article of circuits
+                      </h3>
+                    </header>
+
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
+                      <p>
+                        By <strong className="font-bold">Mr Angry</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <article className="group flex flex-col gap-4">
+                <figure className="relative">
+                  <img
+                    src="dummy-article-images/image-two.jpg"
+                    className="w-full h-72 sm:h-52 object-cover"
+                  />
+                  <figcaption className="sr-only">
+                    The article image of "INSERT_ARTICLE_NAME_HERE"
+                  </figcaption>
+
+                  <div className="absolute left-0 top-0 right-0 bottom-0 bg-black flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                    <span className="font-bold">READ MORE</span>
+                  </div>
+                </figure>
+
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 border-r-2 border-gray flex-shrink-0">
+                    <p className="font-bold text-4xl text-gray ">2</p>
+                  </div>
+                  <div>
+                    <header className="">
+                      <h3 className="text-2xl font-bold group-hover:opacity-50 transition-opacity duration-300">
+                        Crazy contraptions for coffee mugs that will make you
+                        jump
+                      </h3>
+                    </header>
+
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
+                      <p>
+                        By <strong className="font-bold">Big Chungus</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 443 Views
+                      </p>
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <article className="group flex flex-col gap-4">
+                <figure className="relative">
+                  <img
+                    src="dummy-article-images/image-4.jpg"
+                    className="w-full h-72 sm:h-52 object-cover"
+                  />
+                  <figcaption className="sr-only">
+                    The article image of "INSERT_ARTICLE_NAME_HERE"
+                  </figcaption>
+
+                  <div className="absolute left-0 top-0 right-0 bottom-0 bg-black flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                    <span className="font-bold">READ MORE</span>
+                  </div>
+                </figure>
+
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 border-r-2 border-gray">
+                    <p className="font-bold text-4xl text-gray ">3</p>
+                  </div>
+                  <div>
+                    <header className="">
+                      <h3 className="text-2xl font-bold group-hover:opacity-50 transition-opacity duration-300">
+                        The article of Angry Buildings
+                      </h3>
+                    </header>
+
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
+                      <p>
+                        By <strong className="font-bold">Granny Smith</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <article className="group flex flex-col gap-4">
+                <figure className="relative">
+                  <img
+                    src="dummy-article-images/image-5.jpg"
+                    className="w-full h-72 sm:h-52 object-cover"
+                  />
+                  <figcaption className="sr-only">
+                    The article image of "INSERT_ARTICLE_NAME_HERE"
+                  </figcaption>
+
+                  <div className="absolute left-0 top-0 right-0 bottom-0 bg-black flex items-center justify-center opacity-0 group-hover:opacity-75 transition-opacity duration-300">
+                    <span className="font-bold">READ MORE</span>
+                  </div>
+                </figure>
+
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center justify-center w-12 h-12 border-r-2 border-gray">
+                    <p className="font-bold text-4xl text-gray ">4</p>
+                  </div>
+                  <div>
+                    <header className="">
+                      <h3 className="text-2xl font-bold group-hover:opacity-50 transition-opacity duration-300">
+                        The Big Round Dome
+                      </h3>
+                    </header>
+
+                    <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
+                      <p>
+                        By <strong className="font-bold">Ligma</strong>{" "}
+                      </p>
+
+                      <time
+                        itemProp="date created"
+                        dateTime="2024-08-26"
+                        className="flex flex-row gap-1 items-center"
+                      >
+                        <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                      </time>
+
+                      <p className="flex flex-row gap-1 items-center">
+                        <Eye className="w-5 h-5" /> 23 Views
+                      </p>
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
   );
