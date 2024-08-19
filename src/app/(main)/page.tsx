@@ -5,14 +5,14 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen mx-auto">
-      {/*************************
-       *  Hero section
-       **************************
+      {/*********************************************************************************************************************
+       *  HERO SECTION
+       **********************************************************************************************************************
        * */}
       <section className="px-5 container mx-auto pb-16">
         {/** TODO! Replace links and images with NextJS optimized versions */}
-        <header className="py-4">
-          <h1 className="font-bold text-3xl capitalize">
+        <header className="py-5">
+          <h1 className="font-bold text-4xl capitalize hidden">
             Most up to date information on stuff
           </h1>
         </header>
@@ -223,7 +223,7 @@ export default function Home() {
       <div className="bg-black py-16">
         <section className="container mx-auto px-5">
           <header className="">
-            <h2 className="font-bold text-2xl text-secondary mb-8">
+            <h2 className="font-bold text-3xl text-secondary mb-8">
               Trending Now
             </h2>
           </header>
@@ -345,6 +345,60 @@ export default function Home() {
           </ul>
         </section>
       </div>
+
+      {/************************************************************************************************************************
+       * POPULAR SECTION
+       * ***********************************************************************************************************************
+       */}
+
+      <section className="container mx-auto px-5 py-16">
+        <header className="">
+          <h2 className="text-3xl font-bold">POSTS</h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <li>
+              <a href="#">
+                <article>
+                  <figure>
+                    <img src="dummy-article-images/image-three.jpg" />
+                    <figcaption className="sr-only">
+                      The article image of "INSERT_ARTICLE_NAME_HERE"
+                    </figcaption>
+                  </figure>
+
+                  <header className="flex flex-row gap-2">
+                    <span className="px-4 border-r text-3xl text-light-gray">
+                      1
+                    </span>
+                    <h3>The article of circuits</h3>
+                  </header>
+
+                  <footer className="flex flex-row gap-x-4 gap-y-2 flex-wrap items-center text-xs text-light-gray/50">
+                    <p>
+                      By <strong className="font-bold">Ligma</strong>{" "}
+                    </p>
+
+                    <time
+                      itemProp="date created"
+                      dateTime="2024-08-26"
+                      className="flex flex-row gap-1 items-center"
+                    >
+                      <CalendarClock className="w-5 h-5" /> Febuary 26, 2024
+                    </time>
+
+                    <p className="flex flex-row gap-1 items-center">
+                      <Eye className="w-5 h-5" /> 23 Views
+                    </p>
+                  </footer>
+                </article>
+              </a>
+            </li>
+
+            <li>Element two</li>
+            <li>Element three</li>
+            <li>Element four</li>
+          </ul>
+        </header>
+      </section>
     </main>
   );
 }

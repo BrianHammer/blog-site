@@ -11,7 +11,9 @@ const config: Config = {
       background: "#1C1C1C",
       foreground: "#FFF",
       "light-gray": "#DCDCDC",
-      gray: "#3D3D3D",
+
+      "gray": "#777",
+      "dark-gray": "#3D3D3D",
       black: "#000",
       primary: "#DAF400",
       secondary: "#CD2722",
