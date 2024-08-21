@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  // directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+////////////////////////////////////
+// Notes
+////////////////////////////////////
+//  User - contains authentication and authorization information
+//  Account - contains more info about the user such as admin, socmed links, etc
+//    -One account goes to one user
+//  BlogPost - A model that contains all info for building a blog page
+//    -Each post has a main title and image
+//    -The content of a blog is separated into different model called block
+//      -Blocks are listed in order, and a blog post will have many blocks
+//      -Each block is either a paragraph or an image for now (may add extra styling options)
+//    -References its author(account creator), category, comments, and keywords
+//  Category - A model with a name and description field, and references all posts of that category.
+//     -Used for searching, and may have its own page
+//  Keywords - Similar to a hashtag(#games, #movies). 
+//    -A blog post can have many keywords that describe the article
+//  Block - a paragraph or an image figure. Each blog post contains many blocks listed in order
+//  Comments - I hope I remember what this is! 
+//    -Comments are nested 
+//    -Refers to the account creator, and each comment is apart of a blog post.
+//
+//
+//
+
+// The User takes in the minimal amount of info required to register
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  //Todo: figure out if username is important
+  // Should I include first/last name? Is this relevant?
+  username       String?
+  email          String    @unique
+  hashedPassword String
+  Account        Account[]
+
+  @@index(email)
+}
+
+enum AccountRole {
+  GUEST
+  ADMIN
+  AUTHOR
+}
+
+model Account {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  firstName       String
+  lastName        String
+  slug            String      @unique
+  role            AccountRole
+  profileImageUrl String?
+
+  user User @relation(fields: [userId], references: [id])
+
+  blog     BlogPost[]
+  comments Comment[]
+
+  userId String
+
+  @@index(slug)
+}
+
+model BlogPost {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  slug  String @unique()
+  title String @unique()
+
+  views Int
+
+  blocks   Block[]
+  comments Comment[]
+  author   Account   @relation(fields: [authorId], references: [id])
+  category Category  @relation(fields: [categoryId], references: [id])
+  keywords Keyword?  @relation(fields: [keyWordsId], references: [id])
+
+  authorId   String
+  categoryId String
+  keyWordsId String?
+
+  @@index(title)
+}
+
+enum BlockType {
+  PRAGRAPH
+  PICTURE
+}
+
+model Block {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  type         BlockType
+  order        Int
+  // Not ACID! Change later if I have issues or find better solution
+  heading      String?
+  paragraph    String?
+  imageUrl     String?
+  imageCaption String?
+
+  blogPost   BlogPost @relation(fields: [blogPostId], references: [id])
+  blogPostId String
+
+  // This states an order with the same blogpost ID MUST be unique!
+  @@unique([blogPostId, order])
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String @unique
+  description String
+
+  blogPosts BlogPost[]
+
+  @@index(name)
+}
+
+model Keyword {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  word String @unique
+
+  blogPosts BlogPost[]
+
+  @@index(word)
+}
+
+////////////////////////////////////
+// Extra! Non essential features, but may help
+// Comments
+////////////////////////////////////
+model Comment {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content String
+  likes   Int
+
+  replies  Comment[] @relation(name: "comment-replies")
+  parent   Comment?  @relation(name: "comment-replies", fields: [parentId], references: [id])
+  author   Account   @relation(fields: [authorId], references: [id])
+  blogPost BlogPost  @relation(fields: [blogPostId], references: [id])
+
+  parentId   String?
+  authorId   String
+  blogPostId String
+}
